@@ -24,13 +24,13 @@ public class CandidatoController {
 	private CandidatoRepository candidatoRepository;
 	
     @Autowired 
-    private GeneroRepository generoRepository; 
+    private GeneroRepository generoRepository;
 
     @GetMapping("cadastrar") 
-    public String abrirFormulario(Candidato candidato, Model model){ 
+    public String abrirFormularioGenero(Candidato candidato, Model model){ 
         model.addAttribute("generos", generoRepository.findAll()); 
         return "candidato/cadastro"; 
-    } 
+    }
 	
 	@PostMapping("cadastrar")
 	public String realizarCadastro(@Valid Candidato candidato, BindingResult result, RedirectAttributes redirectAttributes) {

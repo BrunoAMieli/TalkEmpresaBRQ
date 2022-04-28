@@ -23,7 +23,7 @@ import lombok.Data;
 public class Candidato {
 
 	@Id
-	@GeneratedValue(generator = "candidato", strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(generator = "candidato", strategy = GenerationType.IDENTITY)
 	private int codigo;
 	
 	@NotBlank(message = "Nome obrigatório.")
@@ -43,7 +43,13 @@ public class Candidato {
 	@Past
 	private LocalDate dataNascimento;
 	
-	private Skill skill;
+	private String skill;
+	
+	private String certificado;
+
+	private String escolaFaculdade;
+
+	private LocalDate dataCertificado;
 
 	@Override
 	public String toString() {
@@ -51,7 +57,5 @@ public class Candidato {
 				+ ", telefone=" + telefone + ", genero=" + genero + ", dataNascimento=" + dataNascimento + ", skill="
 				+ skill + "]";
 	}
-	
-	
 
 }
