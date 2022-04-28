@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{bases}">
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de Candidatos</title>
+</head>
+<body>
+	<div layout:fragment="conteudo">
+		<form th:action="@{/candidato/cadastrar}" th:object="${candidato}"
+			method="post">
+			<div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
+				<p th:if="${#fields.hasErrors('*')}" class="text text-danger"
+					th:errors="*{*}"></p>
+			</div>
+			<input th:field="*{codigo}" type="hidden">
+			<div class="form-group">
+				<label for="nomeCompleto">Nome Completo: </label> <input
+					th:field="*{nomeCompleto}" id="nomeCompleto" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="cpf">CPF: </label> <input th:field="*{cpf}" id="cpf"
+					class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="email">E-mail: </label> <input th:field="*{email}"
+					id="email" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="telefone">Telefone: </label> <input
+					th:field="*{telefone}" id="telefone" class="form-control">
+			</div>
+			<label for="genero">Gênero: </label> <select th:field="*{genero}"
+				id="genero" class="form-control">
+				<option value="">masculino</option>
+				<option value="">feminino</option>
+				
+			</select>
+			<div class="form-group">
+				<label for="dataNascimento">Data Nascimento: </label> <input id="date" type="date">
+			</div>
+			<div class="form-group">
+				<label for="skill">Skill: </label> <input
+					th:field="*{skill}" id="skill" class="form-control">
+			</div>
+			<button class="btn btn-success">Cadastrar</button>
+		</form>
+	</div>
+	<div layout:fragment="rodape"></div>
+</body>
+</html>
