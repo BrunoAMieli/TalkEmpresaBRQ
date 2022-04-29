@@ -70,4 +70,9 @@ public class Candidato {
 				+ skill + "]";
 	}
 
+	public void setCodigo(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
