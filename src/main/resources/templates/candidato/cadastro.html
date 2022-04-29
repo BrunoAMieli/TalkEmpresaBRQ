@@ -35,8 +35,9 @@
 			</div>
 			<label for="genero">Gênero: </label> <select th:field="*{genero}"
 				id="genero" class="form-control">
-				<option value="">Masculino</option>
-				<option value="">Feminino</option>
+				<option value="">Selecione</option>
+				<option th:each="c:${generos}" th:value="${c.codigo}"
+					th:text="${c.nome}"></option>
 			</select> <br>
 			<div class="form-group">
 				<label for="dataNascimento">Data Nascimento: </label> <input
@@ -47,17 +48,16 @@
 					id="skill" class="form-control">
 			</div>
 			<div class="form-group">
+				<label for="experiencia">Tempo de experiência: </label> <input
+					th:field="*{experiencia}" id="experiencia" class="form-control">
+			</div>
+			<div class="form-group">
 				<label for="certificado">Certificação: </label> <input
 					th:field="*{certificado}" id="certificado" class="form-control">
 			</div>
 			<div class="form-group">
 				<label for="escolaFaculdade">Instituição de Ensino: </label> <input
 					th:field="*{escolaFaculdade}" id="escolaFaculdade"
-					class="form-control">
-			</div>
-			<div class="form-group">
-				<label for="experiencia">Tempo de experiência: </label> <input
-					th:field="*{experiencia}" id="experiencia"
 					class="form-control">
 			</div>
 			<div class="form-group">

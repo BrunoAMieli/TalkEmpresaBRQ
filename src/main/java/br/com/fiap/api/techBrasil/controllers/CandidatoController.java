@@ -25,6 +25,11 @@ public class CandidatoController {
 	
     @Autowired 
     private GeneroRepository generoRepository;
+    
+	@GetMapping("/home")
+	public String paginaInicial() {
+		return "candidato/home";
+	}
 
     @GetMapping("cadastrar") 
     public String abrirFormularioGenero(Candidato candidato, Model model){ 

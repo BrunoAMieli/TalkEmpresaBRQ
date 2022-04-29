@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -14,7 +15,6 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CPF;
 
-import br.com.fiap.api.techBrasil.model.Genero;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import lombok.Data;
 
@@ -43,6 +43,7 @@ public class Candidato {
 	@NotNull
 	private String telefone;
 	
+	@ManyToOne
 	private Genero genero;
 	
 	@Past

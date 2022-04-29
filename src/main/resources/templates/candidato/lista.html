@@ -18,25 +18,27 @@
 					<th>Skill</th>
 					<th>Certificação</th>
 					<th>Instituição de Ensino</th>
+					<th>Tempo de Experiência</th>
 					<th>Data de Conclusão do Certificado</th>
 					<th></th>
 				</tr>
-				<tr th:each="prod:${candidatos}">
+				<tr th:each="cand:${candidatos}">
 					<td th:text="${cand.nomeCompleto}"></td>
 					<td th:text="${cand.cpf}"></td>
 					<td th:text="${cand.email}"></td>
 					<td th:text="${cand.telefone}"></td>
-					<td th:text="${cand.genero?.descricao}"></td>
+					<td th:text="${cand.genero?.nome}"></td>
 					<td th:text="${#temporals.format(cand.dataNascimento, 'dd/MM/yyyy')}"></td>
 					<td th:text="${cand.skill}"></td>
 					<td th:text="${cand.certificado}"></td>
 					<td th:text="${cand.escolaFaculdade}"></td>
+					<td th:text="${#numbers.formatDecimal(cand.experiencia, 1, 0)}"></td></td>
 					<td th:text="${cand.dataCertificado}"></td>
 					
 					<td>
 						<a th:href="@{/candidato/editar/}+${cand.codigo}"
 							class="btn btn-outline-primary">Editar</a>
-						<button th:onclick="|candidatoId.value = ${prod.codigo}|"
+						<button th:onclick="|candidatoId.value = ${cand.codigo}|"
 									type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#exampleModal">
 							Excluir
 						</button>
