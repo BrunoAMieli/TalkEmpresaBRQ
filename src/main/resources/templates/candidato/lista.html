@@ -16,6 +16,9 @@
 					<th>Gênero</th>
 					<th>Data de Nascimento</th>
 					<th>Skill</th>
+					<th>Certificação</th>
+					<th>Instituição de Ensino</th>
+					<th>Data de Conclusão do Certificado</th>
 					<th></th>
 				</tr>
 				<tr th:each="prod:${candidatos}">
@@ -26,6 +29,10 @@
 					<td th:text="${cand.genero?.descricao}"></td>
 					<td th:text="${#temporals.format(cand.dataNascimento, 'dd/MM/yyyy')}"></td>
 					<td th:text="${cand.skill}"></td>
+					<td th:text="${cand.certificado}"></td>
+					<td th:text="${cand.escolaFaculdade}"></td>
+					<td th:text="${cand.dataCertificado}"></td>
+					
 					<td>
 						<a th:href="@{/candidato/editar/}+${cand.codigo}"
 							class="btn btn-outline-primary">Editar</a>

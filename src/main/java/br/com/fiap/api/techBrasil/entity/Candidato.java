@@ -49,6 +49,7 @@ public class Candidato {
 
 	private String escolaFaculdade;
 
+	@Past
 	private LocalDate dataCertificado;
 
 	@Override

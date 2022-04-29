@@ -39,7 +39,7 @@ public class CandidatoController {
 		}
         redirectAttributes.addFlashAttribute("msg", "Candidato cadastrado com sucesso!"); 
         candidatoRepository.save(candidato);
-        return "redirect:listar";
+        return "redirect:cadastrar";
 	}
 	
 	@GetMapping("listar")
