@@ -15,6 +15,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.br.CPF;
 
 import br.com.fiap.api.techBrasil.model.Genero;
+import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import lombok.Data;
 
 @Data
@@ -28,14 +29,18 @@ public class Candidato {
 	
 	@NotBlank(message = "Nome obrigatório.")
 	@Size(max = 200)
+	@NotNull
 	private String nomeCompleto;
 	
 	@CPF
+	@NotNull
 	private String cpf;
 	
 	@Email
+	@NotNull
 	private String email;
 	
+	@NotNull
 	private String telefone;
 	
 	private Genero genero;
@@ -43,10 +48,13 @@ public class Candidato {
 	@Past
 	private LocalDate dataNascimento;
 	
+	@NotNull
 	private String skill;
 	
+	@NotNull
 	private String certificado;
 
+	@NotNull
 	private String escolaFaculdade;
 
 	@Past
