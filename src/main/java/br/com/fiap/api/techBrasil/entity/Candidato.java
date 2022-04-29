@@ -52,6 +52,8 @@ public class Candidato {
 	private String skill;
 	
 	@NotNull
+	private int experiencia;
+	
 	private String certificado;
 
 	@NotNull
