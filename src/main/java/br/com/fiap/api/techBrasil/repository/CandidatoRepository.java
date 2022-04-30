@@ -11,5 +11,9 @@ import br.com.fiap.api.techBrasil.entity.Candidato;
 public interface CandidatoRepository extends JpaRepository<Candidato, Integer> {
 
 	List<Candidato> findByNomeCompleto(String cand); 
+	
+	public List<Candidato> findByNomeCompletoOrCpfOrEmailAndSkill_OrderByExperiencia(String nomeCompleto, String cpf, String email, String skill);
+
+	
 
 }

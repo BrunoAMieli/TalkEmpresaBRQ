@@ -50,4 +50,12 @@ public class CandidatoResource {
     public void remover(@PathVariable int codigo) { 
         candidatoRepository.deleteById(codigo); 
     }
+    
+    @GetMapping(value = "/buscaAvancada" )
+    public List<Candidato> findByCompletoAndSkill() {
+               return candidatoRepository.findByNomeCompletoOrCpfOrEmailAndSkill_OrderByExperiencia(null, null, null, null);
+    }
+
+    
+    
 }
