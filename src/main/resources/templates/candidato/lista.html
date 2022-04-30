@@ -1,72 +1,72 @@
 <!DOCTYPE html>
-	<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{base}">
-	<head>
-		<meta charset="UTF-8">
-		<title>Lista de Candidatos</title>
-	</head>
-	<body>
-		<div layout:fragment="conteudo">
-			<div class="alert alert-success" th:if="${msg !=null}" th:text="${msg}"></div>
-			<table class="table">
-				<tr>
-					<th>Nome Completo</th>
-					<th>CPF</th>
-					<th>E-mail</th>
-					<th>Telefone</th>
-					<th>Gênero</th>
-					<th>Data de Nascimento</th>
-					<th>Skill</th>
-					<th>Certificação</th>
-					<th>Instituição de Ensino</th>
-					<th>Tempo de Experiência</th>
-					<th>Data de Conclusão do Certificado</th>
-					<th></th>
-				</tr>
-				<tr th:each="cand:${candidatos}">
-					<td th:text="${cand.nomeCompleto}"></td>
-					<td th:text="${cand.cpf}"></td>
-					<td th:text="${cand.email}"></td>
-					<td th:text="${cand.telefone}"></td>
-					<td th:text="${cand.genero?.nome}"></td>
-					<td th:text="${#temporals.format(cand.dataNascimento, 'dd/MM/yyyy')}"></td>
-					<td th:text="${cand.skill}"></td>
-					<td th:text="${cand.certificado}"></td>
-					<td th:text="${cand.escolaFaculdade}"></td>
-					<td th:text="${#numbers.formatDecimal(cand.experiencia, 1, 0)}"></td></td>
-					<td th:text="${cand.dataCertificado}"></td>
-					
-					<td>
-						<a th:href="@{/candidato/editar/}+${cand.codigo}"
-							class="btn btn-outline-primary">Editar</a>
-						<button th:onclick="|candidatoId.value = ${cand.codigo}|"
-									type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#exampleModal">
-							Excluir
-						</button>
-					</td>
-				</tr>
-			</table>
-			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">Deseja excluir o candidato?</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-								<span aria-hidden="true">&amp;times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<form th:action="@{/candidato/excluir}" method="post">
-									<input type="hidden" name="codigo" id="candidatoId">
-									<button type="button" class="btn btn-secondary"
-										data-dismiss="modal">Não</button>
-									<button type="submit" class="btn btn-danger">Sim</button>
-							</form>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{base}">
+<head>
+<meta charset="UTF-8">
+<title>Lista de Candidatos</title>
+</head>
+<body>
+	<div layout:fragment="conteudo">
+		<div class="alert alert-success" th:if="${msg !=null}"
+			th:text="${msg}"></div>
+		<div class="container px-3 py-3"></div>
+		<form class="p-2 p-md-2 border rounded-2 bg-light">
+			<div class="mt-3">
+				<div class="mx-auto">
+					<table class="table">
+						<tr>
+							<th>Nome</th>
+							<th>CPF</th>
+							<th>E-mail</th>
+							<th>Skill</th>
+							<th>Certificado</th>
+							<th>Experiência (anos)</th>
+						</tr>
+						<tr th:each="cand:${candidatos}">
+							<td th:text="${cand.nomeCompleto}"></td>
+							<td th:text="${cand.cpf}"></td>
+							<td th:text="${cand.email}"></td>
+							<td th:text="${cand.skill}"></td>
+							<td th:text="${cand.certificado}"></td>
+							<td th:text="${#numbers.formatDecimal(cand.experiencia, 1, 0)}">
+							<td><a th:href="@{/candidato/editar/}+${cand.codigo}"
+								class="btn btn-outline-primary">Editar</a>
+								<button th:onclick="|candidatoId.value = ${cand.codigo}|"
+									type="button" class="btn btn-outline-danger"
+									data-toggle="modal" data-target="#exampleModal"> Excluir</button>
+							</td>
+						</tr>
+					</table>
+					<div class="modal fade" id="exampleModal" tabindex="-1"
+						role="dialog" aria-labelledby="exampleModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Deseja
+										excluir o candidato?</h5>
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Fechar">
+										<span aria-hidden="true">&amp;times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<form th:action="@{/candidato/excluir}" method="post">
+										<input type="hidden" name="codigo" id="candidatoId">
+										<button type="button" class="btn btn-secondary"
+											data-dismiss="modal">Não</button>
+										<button type="submit" class="btn btn-danger">Sim</button>
+									</form>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div layout:fragment="rodape">
-		</div>
-	</body>
+		</form>
+	</div>
+	</div>
+	<div layout:fragment="rodape"></div>
+</body>
 </html>

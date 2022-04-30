@@ -10,8 +10,9 @@
 	<div layout:fragment="conteudo">
 		<div class="alert alert-success" th:if="${msg !=null}"
 			th:text="${msg}"></div>
-		<form th:action="@{/candidato/cadastrar}" th:object="${candidato}"
-			method="post">
+		<div class="container px-3 py-3"></div>
+		<form class="p-2 p-md-2 border rounded-2 bg-light" th:action="@{/candidato/cadastrar}" th:object="${candidato}"
+			method="post">			
 			<div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
 				<p th:if="${#fields.hasErrors('*')}" class="text text-danger"
 					th:errors="*{*}"></p>

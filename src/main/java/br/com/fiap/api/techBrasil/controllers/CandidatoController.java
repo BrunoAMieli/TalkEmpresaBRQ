@@ -44,7 +44,7 @@ public class CandidatoController {
 		}
         redirectAttributes.addFlashAttribute("msg", "Candidato cadastrado com sucesso!"); 
         candidatoRepository.save(candidato);
-        return "redirect:cadastrar";
+        return "redirect:listar";
 	}
 	
 	@GetMapping("listar")
@@ -55,7 +55,7 @@ public class CandidatoController {
 	
     @GetMapping("editar/{id}") 
     public String editar(@PathVariable("id") int codigo, Model model){ 
-        model.addAttribute("candidatos",candidatoRepository.findById(codigo)); 
+        model.addAttribute("candidato",candidatoRepository.findById(codigo)); 
         return "candidato/cadastro"; 
     }
     

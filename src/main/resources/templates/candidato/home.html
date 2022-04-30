@@ -8,7 +8,54 @@
 </head>
 <body>
 	<div layout:fragment="conteudo">
-		<h1>Busca de Funcionários</h1>
+		<h1>Página Inicial</h1>
+
+
+		<div class="container px-4 py-5" id="custom-cards">
+			<h2 class="pb-2 border-bottom">Buscar Funcionários</h2>
+
+			<div
+				class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+				<div class="col">
+					<div
+						class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
+						style="background-image: url('https://www.brq.com/_nuxt/image/731339.webp');">
+						<div
+							class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+							<h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Pesquisar:
+							</h2>
+							<ul class="d-flex list-unstyled mt-auto">
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<form class="p-4 p-md-5 border rounded-3 bg-light">
+				<div class="mt-3">
+					<div class="mx-auto">
+						<table class="table">
+							<tr>
+								<th>Nome Completo</th>
+								<th>E-mail</th>
+								<th>Skill</th>
+								<th>Certificação</th>
+								<th>Tempo de Experiência</th>
+								<th></th>
+							</tr>
+							<tr th:each="cand:${candidatos}">
+								<td th:text="${cand.nomeCompleto}"></td>
+								<td th:text="${cand.email}"></td>
+								<td th:text="${cand.skill}"></td>
+								<td th:text="${cand.certificado}"></td>
+								<td th:text="${#numbers.formatDecimal(cand.experiencia, 1, 0)}"></td>
+								</td>
+								<td></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</form>
+		</div>
 	</div>
 	<div layout:fragment="rodape"></div>
 </body>
