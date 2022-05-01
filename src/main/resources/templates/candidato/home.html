@@ -10,56 +10,64 @@
 	<div layout:fragment="conteudo">
 		<h1>Página Inicial</h1>
 
+		<form:form id="tabela" th:action="@{/candidato/buscaAvancada}" method="get" modelAttribute="candskill">
+			<div class="container px-4 py-5" id="custom-cards">
+				<h2 class="pb-2 border-bottom">Buscar Funcionários</h2>
 
-		<div class="container px-4 py-5" id="custom-cards">
-			<h2 class="pb-2 border-bottom">Buscar Funcionários</h2>
-
-			<div
-				class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-				<div class="col">
-					<div
-						class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
-						style="background-image: url('https://www.brq.com/_nuxt/image/731339.webp');">
+				<div
+					class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+					<div class="col">
 						<div
-							class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-							<h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Pesquisar:
-							</h2>
-							<ul class="d-flex list-unstyled mt-auto">
-							</ul>
+							class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
+							style="background-image: url('https://www.brq.com/_nuxt/image/731339.webp');">
+							<div
+								class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+
+								<h2 class="pt-5 mt-5 mb-5 display-6 lh-1 fw-bold">Pesquisar:
+								</h2>
+								<div
+									<a class="form-group input-group"> <span
+										class="input-group-append"><i
+											class="glyphicon glyphicon-search"></i></span> <input
+										name="Consultar" id="tabela" placeholder="Consultar"
+										type="text" class="form-control">
+										<button class="btn btn-my-color-5" href="/candidato/buscaAvancada" type="button">Buscar</button></a>
+								</div>
+								<ul class="d-flex list-unstyled mt-auto">
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
+
+<!-- 				<form class="p-4 p-md-5 border rounded-3 bg-light"> -->
+<!-- 					<div class="mt-3"> -->
+<!-- 						<div class="mx-auto"> -->
+<!-- 							<table id="tabela" href="candidato/buscaAvancada" -->
+<!-- 								class="table table-hover"> -->
+<!-- 								<tr> -->
+<!-- 									<th>Nome Completo</th> -->
+<!-- 									<th>E-mail</th> -->
+<!-- 									<th>Skill</th> -->
+<!-- 									<th>Certificação</th> -->
+<!-- 									<th>Tempo de Experiência</th> -->
+<!-- 									<th></th> -->
+<!-- 								</tr> -->
+<!-- 								<tr th:each="skill:${candskill}"> -->
+<!-- 									<td th:text="${skill.nomeCompleto}"></td> -->
+<!-- 									<td th:text="${skill.email}"></td> -->
+<!-- 									<td th:text="${skill.skill}"></td> -->
+<!-- 									<td th:text="${skill.certificado}"></td> -->
+<!-- 									<td th:text="${#numbers.formatDecimal(skill.experiencia, 1, 0)}"></td> -->
+<!-- 									</td> -->
+<!-- 									<td></td> -->
+<!-- 								</tr> -->
+<!-- 							</table> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</form> -->
 			</div>
-			
-					
-			
-			
-			<form class="p-4 p-md-5 border rounded-3 bg-light">
-				<div class="mt-3">
-					<div class="mx-auto">
-						<table class="table">
-							<tr>
-								<th>Nome Completo</th>
-								<th>E-mail</th>
-								<th>Skill</th>
-								<th>Certificação</th>
-								<th>Tempo de Experiência</th>
-								<th></th>
-							</tr>
-							<tr th:each="cand:${candidatos}">
-								<td th:text="${cand.nomeCompleto}"></td>
-								<td th:text="${cand.email}"></td>
-								<td th:text="${cand.skill}"></td>
-								<td th:text="${cand.certificado}"></td>
-								<td th:text="${#numbers.formatDecimal(cand.experiencia, 1, 0)}"></td>
-								</td>
-								<td></td>
-							</tr>
-						</table>
-					</div>
-				</div>
-			</form>
-		</div>
+		</form:form>
 	</div>
 	<div layout:fragment="rodape"></div>
 </body>

@@ -52,10 +52,8 @@ public class CandidatoResource {
     }
     
     @GetMapping(value = "/buscaAvancada" )
-    public List<Candidato> findByCompletoAndSkill() {
-               return candidatoRepository.findByNomeCompletoOrCpfOrEmailAndSkill_OrderByExperiencia(null, null, null, null);
+    public List<Candidato> findBySkill() {
+               return candidatoRepository.findBySkill_OrderByCertificadoDesc("CSS");
     }
 
-    
-    
 }

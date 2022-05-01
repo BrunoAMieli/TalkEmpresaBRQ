@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.fiap.api.techBrasil.entity.Candidato;
@@ -53,7 +55,13 @@ public class CandidatoController {
 		return "candidato/lista";
 	}
 	
-    @GetMapping("editar/{id}") 
+	@RequestMapping("buscaAvancada")
+	public ModelAndView buscaAvancada(@RequestParam String skill, Model model) {
+		model.addAttribute("candskill", candidatoRepository.findBySkill_OrderByCertificadoDesc("CSS"));
+		return new ModelAndView("candidato/home");
+	}
+
+	@GetMapping("editar/{id}") 
     public String editar(@PathVariable("id") int codigo, Model model){ 
         model.addAttribute("candidato",candidatoRepository.findById(codigo)); 
         return "candidato/cadastro"; 
