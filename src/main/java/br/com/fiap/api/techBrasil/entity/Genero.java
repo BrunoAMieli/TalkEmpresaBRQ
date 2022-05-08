@@ -19,5 +19,7 @@ public class Genero {
 	
 	private String nome;
 	
+	private double valor;
+	
 	
 }

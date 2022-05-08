@@ -32,7 +32,7 @@
 							<td th:text="${#numbers.formatDecimal(cand.experiencia, 1, 0)}">
 							<td><a th:href="@{/candidato/editar/}+${cand.codigo}"
 								class="btn btn-outline-primary">Editar</a>
-								<button th:onclick="|candidatoId.value = ${cand.codigo}|"
+								<button th:onclick="|produtoId.value = ${cand.codigo}|"
 									type="button" class="btn btn-outline-danger"
 									data-toggle="modal" data-target="#exampleModal"> Excluir</button>
 							</td>
